@@ -1,4 +1,4 @@
-import {getPromise} from '../../../utils/httpUtil.js'
+import {getPromise} from '../../utils/httpUtil.js'
 import Vue from 'vue'
 import loading from 'components/Loading'
 /**

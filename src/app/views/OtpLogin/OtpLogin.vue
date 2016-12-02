@@ -27,7 +27,7 @@
   </div>
 </template>
 <style lang="less">
-  @import "../../../../styles/common.less";
+  @import "../../../styles/common.less";
   @inputGap: @gap/2;
   #otp-login {
     padding-left: @gap;
@@ -43,7 +43,7 @@
     > .icon {
       width: 100%;
       height: 250px;
-      background: url(../../../../../static/otp-icon.png) no-repeat center center;
+      background: url(../../../../static/otp-icon.png) no-repeat center center;
     }
     > .otp-login-main{
       width:100%;
@@ -67,7 +67,7 @@
           border-radius: 8px;
           top: 18px;
           right: 18px;
-          background: url(../../../../../static/delete.png) no-repeat center center;
+          background: url(../../../../static/delete.png) no-repeat center center;
         }
         > div.del-is-show{
           display: block;

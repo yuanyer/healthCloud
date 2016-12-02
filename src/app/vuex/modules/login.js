@@ -14,14 +14,14 @@ export default {
         }
     },
     actions: {
-        async getOtp ({commit}, data) {
-            commit('setOtpStatus', await getOtpNumber(data))
+        getOtp ({commit}, data) {
+            commit('setOtpStatus', getOtpNumber(data))
         },
-        async loginIN ({commit}, data) {
-            commit('setLoginStatus', await login(data))
+        loginIN ({commit}, data) {
+            commit('setLoginStatus', login(data))
         },
-        async validatePhoneNumberAndNeedPic ({commit}, data) {
-            await httpValidate(data)
+        validatePhoneNumberAndNeedPic ({commit}, data) {
+            httpValidate(data)
         }
     }
 }

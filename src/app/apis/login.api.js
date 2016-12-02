@@ -1,4 +1,4 @@
-import {getPromise} from '../../../utils/httpUtil'
+import {getPromise} from '../../utils/httpUtil'
 import Vue from 'vue'
 
 export function httpValidate (mobileNo) {

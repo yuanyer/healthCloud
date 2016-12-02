@@ -14,14 +14,14 @@
                         <div class="p-y">{{item.age}}</div>
                         <div class="p-y">{{item.docNoDesc}}</div>
                     </span>
-                    <img slot="icon" src="../../../../assets/images/boy@3x.png" alt="" height="16" v-show="item.gender!=='F'">
-                    <img slot="icon" v-show="item.gender==='F'" src="../../../../assets/images/girl@3x.png" alt="" height="16">
+                    <img slot="icon" src="../../../assets/images/boy@3x.png" alt="" height="16" v-show="item.gender!=='F'">
+                    <img slot="icon" v-show="item.gender==='F'" src="../../../assets/images/girl@3x.png" alt="" height="16">
                 </cell-swipe>
             </div>
         </div>
         <!--没有联系人-->
         <div v-if="show" class="no-concat text-center">
-            <img src="../../../../assets/images/no_data@3x.png" alt="" height="90px">
+            <img src="../../../assets/images/no_data@3x.png" alt="" height="90px">
             <h2>当前无联系人</h2>
         </div>
         <div class="p-x btn-add" v-if="!show">
