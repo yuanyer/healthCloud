@@ -9,6 +9,11 @@ var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
 var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
+/*begin changed*/
+var fs=require("fs")
+fs.writeFileSync("./config/temp.js", "module.exports='"+env + "'");
+/*end changed*/
+
 module.exports = {
     entry: {
         app: './src/app/index.js'

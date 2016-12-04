@@ -1,11 +1,12 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
-var chost = '10.180.192.13:8088'
+// var chost = '10.180.192.13:8088'
+var webapp=require("../config/config").webapp
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: path.resolve(__dirname, '../'+webapp+'/index.html'),
+    assetsRoot: path.resolve(__dirname, '../'+webapp),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
     productionSourceMap: false,
@@ -21,7 +22,7 @@ module.exports = {
     port: 8080,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
+ /*   proxyTable: {
         '/hmcp-hp': {
             target: 'http://' + chost,
             changeOrigin: true,
@@ -29,7 +30,7 @@ module.exports = {
                 // '^/hmcp-hp': ''
             }
         }
-    },
+    },*/
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

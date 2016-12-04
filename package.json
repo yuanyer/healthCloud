@@ -1,16 +1,19 @@
 {
-  "name": "health",
-  "version": "1.0.0",
-  "description": "this is a vue project ",
-  "author": "nieyulin756",
+  "name": "healthCloud",
+  "version": "1.5.0",
+  "description": "vue",
+  "author": "zhangyuanyuan031",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
+    "build1": "node build/build.js",
     "unit": "karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
+    "start": "cross-env NODE_ENV=development node build/server",
+    "package": "cross-env NODE_ENV=test node build/package",
+    "build": "cross-env NODE_ENV=production node build/package"
   },
   "dependencies": {
     "md5hex": "^1.0.0",
