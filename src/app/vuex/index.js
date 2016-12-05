@@ -1,4 +1,3 @@
-import test from './modules/test'
-import login from './modules/login'
+import login from './login'
 
-export default {test, login}
+export default {login}

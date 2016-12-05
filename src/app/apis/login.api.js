@@ -1,7 +1,7 @@
 import {getPromise} from '../../utils/httpUtil'
 import Vue from 'vue'
 
-export function httpValidate (mobileNo) {
+export function httpValidate(mobileNo) {
     const urlValidatePhone = '/api/uc/pinganone/v1/checkMobileNo'
     const urlNeedPic = '/api/uc/pinganone/v1/isShowImageVcode'
     const params = {
@@ -19,21 +19,21 @@ export function httpValidate (mobileNo) {
 
 // 获取otp验证码
 // options需要传递的参数
-export function getOtpNumber (options) {
+export function getOtpNumber(options) {
     return Vue.http.get(Vue.getUrl('/jsons/otp.json'), options)
-            .then((data) => {
-                return data
-            }).catch((error) => {
-                return error
-            })
+        .then((data) => {
+            return data
+        }).catch((error) => {
+            return error
+        })
 }
 
 // 登录的接口
-export function login (options) {
+export function login(options) {
     return Vue.http.get(Vue.getUrl('jsons/login.json'), options)
-            .then((data) => {
-                return data
-            }).catch((error) => {
-                return error
-            })
+        .then((data) => {
+            return data
+        }).catch((error) => {
+            return error
+        })
 }

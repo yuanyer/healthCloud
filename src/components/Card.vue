@@ -7,11 +7,10 @@
 export default {}
 </script>
 <style lang="less">
-@import "../styles/vars.less";
 
-.pd-card {
+/*.pd-card {
     padding: @gap;
-}
+}*/
 
 // .pd-card:before {
 //     display: block;
@@ -19,7 +18,7 @@ export default {}
 //     content: '';
 //     border: 1px solid @border-color;
 //     width: 199.9999%;
-//     height: 199.9999%;
+//     height: 199.9999%;aaa
 //     position: absolute;
 //     top: -50%;
 //     left: -50%;

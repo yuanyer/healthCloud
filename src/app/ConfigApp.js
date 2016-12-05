@@ -3,12 +3,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
-import MintUI from 'mint-ui'
 import FastClick from 'fastclick'
-import '../assets/iconfont/iconfont.css'
-import '../styles/common.less'
-import '../styles/border.less'
-import '../styles/mint-override.less'
 import App from './index.vue'
 import httpconfig from '../utils/httpconfig'
 import 'utils/filters'
@@ -32,7 +27,6 @@ const logger = createLogger({
 
 export default function ({router = {}, stores, urlTables}) {
     Vue.use(VueRouter)
-    Vue.use(MintUI)
     FastClick.attach(document.body)
     const Router = new VueRouter({
         mode: 'hash',

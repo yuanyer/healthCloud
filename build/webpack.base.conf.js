@@ -3,15 +3,15 @@ var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 var env = process.env.NODE_ENV
-    // check env & config/index.js to decide weither to enable CSS Sourcemaps for the
-    // various preprocessor loaders added to vue-loader at the end of this file
+// check env & config/index.js to decide weither to enable CSS Sourcemaps for the
+// various preprocessor loaders added to vue-loader at the end of this file
 var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
 var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 /*begin changed*/
-var fs=require("fs")
-fs.writeFileSync("./config/temp.js", "module.exports='"+env + "'");
+var fs = require("fs")
+fs.writeFileSync("./config/temp.js", "module.exports='" + env + "'");
 /*end changed*/
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
         filename: '[name].js'
     },
     resolve: {
-        extensions: ['', '.js', '.vue'],
+        extensions: ['', '.js', '.vue', "css", "less"],
         fallback: [path.join(__dirname, '../node_modules')],
         alias: {
             'vue$': 'vue/dist/vue',
@@ -38,17 +38,6 @@ module.exports = {
         fallback: [path.join(__dirname, '../node_modules')]
     },
     module: {
-        preLoaders: [{
-            test: /\.vue$/,
-            loader: 'eslint',
-            include: projectRoot,
-            exclude: /node_modules/
-        }, {
-            test: /\.js$/,
-            loader: 'eslint',
-            include: projectRoot,
-            exclude: /node_modules/
-        }],
         loaders: [{
             test: /\.vue$/,
             loader: 'vue'
@@ -75,9 +64,6 @@ module.exports = {
                 name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
             }
         }]
-    },
-    eslint: {
-        formatter: require('eslint-friendly-formatter')
     },
     vue: {
         loaders: utils.cssLoaders({

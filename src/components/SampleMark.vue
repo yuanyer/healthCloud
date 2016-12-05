@@ -12,6 +12,7 @@ export default {
     }
 }
 </script>
+<!--
 <style lang="less">
 .sample-mark {
     width: 77px;
@@ -23,4 +24,4 @@ export default {
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-</style>
+</style>-->
