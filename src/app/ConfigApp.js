@@ -8,7 +8,7 @@ import App from './index.vue'
 import httpconfig from '../utils/httpconfig'
 import 'utils/filters'
 import 'utils/fontset'
-import {Loading} from 'components'
+// import {Loading} from 'components'
 import {isFunction, isPrd} from 'utils'
 import {setBarTitle, checkLogin} from 'utils/appUtil'
 import {checkSignParams} from 'utils/channelInfoHandlers'
@@ -35,7 +35,7 @@ export default function ({router = {}, stores, urlTables}) {
     })
 
     Router.beforeEach((to, from, next) => {
-        Loading.close()
+        // Loading.close()
         if (to.meta.title && to.meta.title !== from.meta.title) {
             setBarTitle(to.meta.title)
         }
