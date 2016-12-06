@@ -1,4 +1,3 @@
-// import 'utils/fontset'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Vuex from 'vuex'
@@ -6,12 +5,12 @@ import createLogger from 'vuex/dist/logger'
 import FastClick from 'fastclick'
 import App from './index.vue'
 import httpconfig from '../utils/httpconfig'
+import '../styles/common.css'
 import 'utils/filters'
-import 'utils/fontset'
-// import {Loading} from 'components'
 import {isFunction, isPrd} from 'utils'
 import {setBarTitle, checkLogin} from 'utils/appUtil'
 import {checkSignParams} from 'utils/channelInfoHandlers'
+import  '../utils/client.set'
 
 Vue.use(Vuex)
 

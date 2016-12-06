@@ -1,8 +1,6 @@
-import Index from './index.route'
-import Login from './login-route'
-import MyTest from './test-route'
-export default [
-    ...Index,
-    ...Login,
-    ...MyTest
-]
+import login from './login/index.js';
+import root from './root/index.js';
+import test1 from './test1/index.js';
+import test2 from './test2/index.js';
+import test3 from './test3/index.js';
+export default [...login, ...root, ...test1, ...test2, ...test3]

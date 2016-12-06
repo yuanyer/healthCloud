@@ -10,8 +10,26 @@ var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 /*begin changed*/
-var fs = require("fs")
+// 设置环境
+var fs = require("fs"),Glob = require("glob").Glob;
 fs.writeFileSync("./config/temp.js", "module.exports='" + env + "'");
+if(fs.existsSync("./src/app/routers/index.js"))
+    fs.unlinkSync("./src/app/routers/index.js");
+
+let routerFiles = new Glob("./src/app/routers/**/index.js", {sync: true}).found;
+if(routerFiles.length > 0){
+    let content=[],importFiles=[];
+    routerFiles.forEach(item=>{
+        let relativePath=item.replace("./src/app/routers/","");
+        let routerName=relativePath.split("/")[0];
+        importFiles.push("import " + routerName + " from './"+relativePath+"'");
+        content.push("..."+routerName);
+    })
+   fs.writeFileSync("./src/app/routers/index.js",importFiles.join(";") + "; export default [" +content.join(", ") + "]")
+}
+
+
+
 /*end changed*/
 
 module.exports = {

@@ -10,7 +10,7 @@ export default {
                 let data = req.body.result;
                 console.log(data);
                 if (data.username == options.username && data.pwd == options.pwd) {
-                    options.router.replace("/test")
+                    options.router.replace("/test1")
                 }else{
                     alert("没有成功")
                 }

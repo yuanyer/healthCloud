@@ -3,10 +3,11 @@
  */
 
 import Vue from 'vue'
-
+import {gPath} from 'utils'
+let path=gPath();
 export function login(parame) {
     return Vue.http.get(Vue.getUrl({
-        url:"/mock/login.do",
+        url:path+"/mock/login.do",
         mockUrl:"/login.json",
         mock:true
     }),parame).then((data)=>{

@@ -7,7 +7,6 @@ module.exports = {
     version:"1.5.0",//版本名称
     webapp: "webapp", //生成打包目录
     zip:"zip",//打包目录
-    packName:"hmcp-hp",//打包文件名
     environment: {
         develop: { //开发环境个人开发用
             port: "80",

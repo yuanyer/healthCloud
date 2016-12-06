@@ -1,4 +1,7 @@
-import IndexView from '../views/IndexView.vue'
+/**
+ * Created by zhangyuanyuan031 on 2016/12/6.
+ */
+import IndexView from '../../views/IndexView.vue'
 export default [{
     path: '/',
     component: IndexView,
