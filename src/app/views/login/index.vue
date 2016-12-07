@@ -8,15 +8,9 @@
         <button v-on:click="submit">提交</button>
     </div>
 </template>
-<style>
-    body{
-        background-color:#FFFFFF;
-    }
-</style>
 <script>
-
     export default{
-        data:()=>{
+        data(){
             return {
                 username:"",
                 pwd:""
@@ -27,6 +21,5 @@
                 this.$store.dispatch("login",{username:this.username,pwd:this.pwd,router:this.$router})
             }
         }
-
     }
 </script>

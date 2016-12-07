@@ -1,7 +1,7 @@
 import VueResource from 'vue-resource'
 import Vue from 'vue'
 import {isPrd, isString} from './index'
-import {Msg, Loading} from 'components'
+// import {Msg, Loading} from 'components'
 import {getAppChannelInfo} from 'utils/channelInfoHandlers'
 import {getToken, gotoLogin, closeWebView} from 'utils/appUtil'
 
@@ -38,9 +38,9 @@ function _timeout (req, next) {
     const timer = setTimeout(() => {
         req.abort()
 
-        Loading.close()
+        // Loading.close()
 
-        Msg.toast('请求超时')
+        // Msg.toast('请求超时')
     }, req.timeout || TIMEOUT)
 
     next((response) => {
@@ -68,12 +68,12 @@ Vue.http.interceptors.push((request, next) => {
     addChannelSign(request.headers)
 
     function errorAlert (response) {
-        Loading.close()
+        // Loading.close()
         let msg
         if (response.body && response.body.msg) {
             msg = response.body.msg
         }
-        Msg.error(msg)
+        // Msg.error(msg)
     }
 
     function checkError (response) {
