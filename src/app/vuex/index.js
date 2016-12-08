@@ -1,3 +1,3 @@
 import login from './login'
-
-export default {...login}
+import test from './test'
+export default {...login, ...test}

@@ -7,14 +7,14 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+    baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
 
 /*begin changed*/
 
-var webpackConfig={
+var webpackConfig = {
     module: {
-        loaders: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+        loaders: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
     },
     // eval-source-map is faster for development
     devtool: '#eval-source-map',
@@ -35,8 +35,7 @@ var webpackConfig={
     ]
 }
 
-var BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-var aResource = ["./src/**/*.js","./src/**/*.vue","./src/**/*.css","./src/**/*.less"]
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 webpackConfig.plugins.push(
     new BrowserSyncPlugin({
         port: 8000,
@@ -48,7 +47,7 @@ webpackConfig.plugins.push(
                 port: 9090
             }
         },
-        files: aResource,
+        files:["/src/**/*.js", "/src/**/*.vue", "/src/**/*.css", "/src/**/*.less"],
         watchOptions: {
             ignoreInitial: true,
             ignored: '/node_modules/**/*.*'
@@ -59,7 +58,6 @@ webpackConfig.plugins.push(
         //startPath:"./index.html" //启动时开始目录
     }),
     new webpack.optimize.OccurrenceOrderPlugin()
-
 );
 
 
