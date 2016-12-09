@@ -1,3 +1,4 @@
+'use strict'
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
@@ -13,22 +14,35 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 // 设置环境
 var fs = require("fs"),Glob = require("glob").Glob;
 fs.writeFileSync("./config/temp.js", "module.exports='" + env + "'");
-if(fs.existsSync("./src/app/routers/index.js"))
-    fs.unlinkSync("./src/app/routers/index.js");
 
-let routerFiles = new Glob("./src/app/routers/**/index.js", {sync: true}).found;
-if(routerFiles.length > 0){
-    let content=[],importFiles=[];
-    routerFiles.forEach(item=>{
-        let relativePath=item.replace("./src/app/routers/","");
-        let routerName=relativePath.split("/")[0];
-        importFiles.push("import " + routerName + " from './"+relativePath+"'");
-        content.push("..."+routerName);
-    })
-   fs.writeFileSync("./src/app/routers/index.js",importFiles.join(";") + "; export default [" +content.join(", ") + "]")
-}
+let mergeFiles=(rm,search,isRouter)=>{
+    if(fs.existsSync(rm))
+        fs.unlinkSync(rm);
 
+    let routerFiles = new Glob(search, {sync: true}).found;
+    if(routerFiles.length > 0){
+        let content=[],importFiles=[];
+        routerFiles.forEach(item=>{
+            let relativePath;
+            if(isRouter){
+                relativePath=item.replace("./src/app/routers/","");
+            }else{
+                relativePath=item.replace("./src/app/vuex/","");
+            }
+            let routerName=relativePath.split("/")[0];
+            importFiles.push("import " + routerName + " from './"+relativePath+"'");
+            content.push("..."+routerName);
+        })
+        if(isRouter){
+            fs.writeFileSync(rm,importFiles.join(";") + "; export default [" +content.join(", ") + "]")
+        }else{
+            fs.writeFileSync(rm,importFiles.join(";") + "; export default {" +content.join(", ") + "}")
+        }
+    }
+};
 
+mergeFiles("./src/app/routers/index.js","./src/app/routers/**/index.js",true);
+mergeFiles("./src/app/vuex/index.js","./src/app/vuex/**/index.js");
 
 /*end changed*/
 
