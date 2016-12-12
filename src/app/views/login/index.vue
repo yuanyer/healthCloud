@@ -1,5 +1,6 @@
 <template>
     <div>
+        <img src="../../../images/ajax-loader.gif"/>
         <div>这是登录页面</div>
         <label for="username">用户名:</label>
         <input type="text" id="username" v-model="username"/>

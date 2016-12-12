@@ -24,7 +24,7 @@ mkdir('-p', assetsPath)
 cp('-R', 'static/*', assetsPath)
 
 // webpackConfig.output.publicPath = 'http://ofxtpy1bg.bkt.clouddn.com/'
-// webpackConfig.output.publicPath = './'
+webpackConfig.output.publicPath = './'
 
 webpack(webpackConfig, function (err, stats) {
   spinner.stop()

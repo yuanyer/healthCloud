@@ -1,3 +1,4 @@
+'use strict'
 var config = require('../config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
@@ -12,6 +13,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 /*begin changed*/
 
+let env = process.env.NODE_ENV;
 var webpackConfig = {
     module: {
         loaders: utils.styleLoaders({sourceMap: config.dev.cssSourceMap})
@@ -20,7 +22,9 @@ var webpackConfig = {
     devtool: '#eval-source-map',
     plugins: [
         new webpack.DefinePlugin({
-            'process.env': config.dev.env
+            "process.env": {
+                NODE_ENV: JSON.stringify(env)
+            }
         }),
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.optimize.OccurenceOrderPlugin(),

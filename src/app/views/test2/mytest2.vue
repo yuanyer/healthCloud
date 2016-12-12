@@ -1,5 +1,6 @@
 <template>
     <div>
+        <img src="../../../images/aaa.jpeg"/>
         <h2>test2 data is</h2>
         <span>{{ mydata }}</span>
         <ul>

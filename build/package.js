@@ -7,7 +7,7 @@
 
 require('./check-versions')()
 require('shelljs/global')
-// env.NODE_ENV = 'production'
+// process.env.NODE_ENV = 'test'
 
 console.log("开启模式: \x1b[32m" + env.NODE_ENV + "\x1b[0m" + "模式……")
 
@@ -32,7 +32,7 @@ mkdir('-p', assetsPath)
 cp('-R', 'static/*', assetsPath)
 
 // webpackConfig.output.publicPath = 'http://ofxtpy1bg.bkt.clouddn.com/'
-// webpackConfig.output.publicPath = './'
+webpackConfig.output.publicPath = './'
 
 webpack(webpackConfig, function (err, stats) {
     spinner.stop()

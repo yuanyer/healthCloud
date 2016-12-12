@@ -2,7 +2,7 @@
 <transition name="pd-loading">
     <div class="pd-loading" v-show="show">
         <div class="pd-loading-wrapper">
-            <img src="../assets/images/ajax-loader.gif">
+            <img src="../assets/ajax-loader.gif">
             <span class="pd-loading-text" v-if="text">{{text}}</span>
         </div>
     </div>
